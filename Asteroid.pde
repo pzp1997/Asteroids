@@ -4,8 +4,8 @@ class Asteroid extends Obj {
 
   Asteroid(float x, float y, float spd, float dir, int lvl_) {
     super(x, y, spd, dir, asterSzLvls[lvl_]);
+    points = asterPntLvls[lvl_];
     lvl = lvl_;
-    points = asterPntLvls[lvl];
   }
 
   void display() {
@@ -17,10 +17,11 @@ class Asteroid extends Obj {
     score += points;
     bonus += points;
     if (lvl < 2) {
-      this.breakApart();
+      breakApart();
     }
     asteroids.remove(this);
-    
+
+
     if (sound != 0) {
       sounds[1 + 3*(sound-1)].trigger();
     }

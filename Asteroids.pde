@@ -1,31 +1,31 @@
 /*
 Asteroids.pde: The classic game "Asteroids" written in Processing
-Author: Palmer Paul
-Email: pzpaul2002@yahoo.com
-Twitter: @pzp1997
-Version: 1.2.0 (10/18/14 23:40)
-Copyright: (c) 2014, Palmer Paul
-*/
+ Author: Palmer Paul
+ Email: pzpaul2002@yahoo.com
+ Twitter: @pzp1997
+ Version: 1.2.1 (10/19/14 09:45)
+ Copyright: (c) 2014, Palmer Paul
+ */
 
 import ddf.minim.*;
 
 PShape shipShape;
 PShape asterShape;
 PImage[] imgs = new PImage[4];
-Ship ship;
+AudioSample[] sounds = new AudioSample[6];
 ArrayList<Asteroid> asteroids;
 ArrayList<Proj> projectiles;
+int[] asterPntLvls = new int[3];
+int[] asterSzLvls = new int[3];
 int lives;
 int score;
 int bonus;
 int sound;
 boolean paused;
-int[] asterPntLvls = new int[3];
-int[] asterSzLvls = new int[3];
+Ship ship;
 Button pauseBtn;
 Button soundBtn;
 Minim minim;
-AudioSample[] sounds = new AudioSample[6];
 
 final int pointBonus = 5000;
 final float asterMinSpeed = 1.5;
@@ -69,7 +69,7 @@ void setup() {
   soundBtn = new Button(width-80, 30, 40);
 
   displayMessage("ASTEROIDS", "Press SPACE to play!");
-  text("by Palmer Paul", width-300, height-50);
+  text("by Palmer Paul", width-300, height-30);
   startGame();
 }
 
@@ -92,7 +92,7 @@ void draw() {
 
     background(0);
 
-    scoreLives();
+    scoreboard();
     pauseBtn.update();
     soundBtn.update();
     image(imgs[3], width-30, 30, 25, 25);
@@ -172,12 +172,14 @@ void keyReleased() {
 }
 
 void mousePressed() {
-  if (pauseBtn.overButton()) {
-    displayMessage("PAUSED", "Press SPACE to resume");
-  }
-  if (soundBtn.overButton()) {
-    sound++;
-    sound %= imgs.length-1;
+  if (!paused) {
+    if (pauseBtn.overButton()) {
+      displayMessage("PAUSED", "Press SPACE to resume");
+    }
+    if (soundBtn.overButton()) {
+      sound++;
+      sound %= imgs.length-1;
+    }
   }
 }
 
@@ -212,18 +214,7 @@ void genAsters(int numAsters) {
   }
 }
 
-int highscore() {
-  int hscore = int(loadStrings("Highscore.txt")[0]);
-  if (score > hscore) {
-    String[] toWrite = new String[1];
-    toWrite[0] = str(score);
-    saveStrings("Highscore.txt", toWrite);
-    return score;
-  } 
-  return hscore;
-}
-
-void scoreLives() {
+void scoreboard() {
   fill(255);
   textSize(48);
   text(score, 10, 45);

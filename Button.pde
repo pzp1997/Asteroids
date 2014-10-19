@@ -2,7 +2,6 @@ class Button {
   float x;
   float y;
   int sz;
-  boolean hover;
 
   Button(float x_, float y_, int sz_) {
     x = x_;

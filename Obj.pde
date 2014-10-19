@@ -16,13 +16,13 @@ class Obj {
   void update() {
     x += cos(dir) * spd;
     y -= sin(dir) * spd;
-    this.wrap();
+    wrap();
   }
 
   void display(PShape shape) {
     pushMatrix();
     translate(x, y);
-    rotate(-dir + PI/2);
+    rotate(-dir + HALF_PI);
     shape(shape, 0, 0, sz, sz);
     popMatrix();
   }

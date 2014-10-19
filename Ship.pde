@@ -9,10 +9,10 @@ class Ship extends Obj {
   boolean space;
   boolean immune;
 
-  final int maxSpeed = 10;
+  final float maxSpeed = 10;
   final float accel = 0.1;
   final float decel = 0.2;
-  final float handling = radians(3.5);
+  final float handling = radians(3);
 
   Ship() {
     super(width/2, height/2, 0.0, 90.0, 56);
@@ -33,10 +33,10 @@ class Ship extends Obj {
       dir -= handling;
     }
     if (down) {
-      this.hyperspace();
+      hyperspace();
     }
     if (space) {
-      this.shoot();
+      shoot();
     }
     
     if (millis() - timeDecel >= 100) {
@@ -81,7 +81,7 @@ class Ship extends Obj {
     x = width/2;
     y = height/2;
     spd = 0.0;
-    dir = PI/2;
+    dir = HALF_PI;
     lives -= 1;
     immune = true;
     timeImmune = millis();
@@ -91,7 +91,7 @@ class Ship extends Obj {
     }
 
     if (lives == -1) {
-      displayMessage("GAME OVER", "Score: " + score + "; High: " + highscore());
+      displayMessage("GAME OVER", "Score: " + score);
       startGame();
     }
   }

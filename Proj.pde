@@ -3,10 +3,12 @@ class Proj {
   float y;
   float dx;
   float dy;
-  final int sz = 5;
-  final float spd = 15;
+  final int sz;
+  final float spd;
 
   Proj(float x_, float y_, float dir) {
+    sz = 5;
+    spd = 15;
     x = x_;
     y = y_;
     dx = cos(dir) * spd;
