@@ -3,8 +3,8 @@ Asteroids.pde: The classic game "Asteroids" written in Processing
  Author: Palmer Paul
  Email: pzpaul2002@yahoo.com
  Twitter: @pzp1997
- Version: 1.2.1 (10/19/14 09:45)
- Copyright: (c) 2014, Palmer Paul
+ Version: 1.3.0 (03/23/17 01:10)
+ Copyright: (c) 2014-2017, Palmer Paul
  */
 
 import ddf.minim.*;
@@ -33,7 +33,7 @@ final float asterMaxSpeed = 2.0;
 final int maxProjs = 10;
 
 void setup() {
-  size(displayWidth, displayHeight, P2D);
+  fullScreen(P2D);
   frameRate(60);
   rectMode(CENTER);
   imageMode(CENTER);
@@ -223,4 +223,3 @@ void scoreboard() {
   text("x", 45, 88);
   text(lives, 68, 90);
 }
-

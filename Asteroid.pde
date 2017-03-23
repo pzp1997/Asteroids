@@ -45,4 +45,3 @@ class Asteroid extends Obj {
     asteroids.add(new Asteroid(x, y, random(asterMinSpeed, asterMaxSpeed)*(lvl+1), random(360), lvl+1));
   }
 }
-

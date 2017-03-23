@@ -96,4 +96,3 @@ class Ship extends Obj {
     }
   }
 }
-

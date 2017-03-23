@@ -25,4 +25,3 @@ class Button {
     rect(x, y, sz, sz);
   }
 }
-
