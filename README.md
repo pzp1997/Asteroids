@@ -3,9 +3,7 @@
 The classic game <em><a href="http://en.wikipedia.org/wiki/Asteroids_(video_game)">Asteroids</a></em> written in <a href="http://processing.org">Processing</a>.
 
 <h2>Download</h2>
-<p><a href="http://bit.ly/1vQ8prz">Mac (v1.2.1)</a><br>
-MD5: 23c2f2b916db78122d051725a0114bd0<br>
-SHA256: a9f20fe44421aef71f7ac0b5a8250abb6400fc53f148050a316b381ecd8d5b26</p>
+<p><a href="https://drive.google.com/open?id=0B5_nVTEmLd-cZGtMNUtNTnMtems">Mac (v1.3.0)</a><br>
 <p>Downloads for Windows and Linux available upon request (need a tester).</p>
 
 <h2>Contact</h2>
